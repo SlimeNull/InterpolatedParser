@@ -28,6 +28,13 @@ namespace InterpolatedParser
             s_parsers[typeof(T)] = parser;
         }
 
+        public static void Parse(ref int index, string input,
+            [System.Runtime.CompilerServices.InterpolatedStringHandlerArgument(nameof(index), nameof(input))]
+            RefPieceParseInterpolatedStringHandler template)
+        {
+
+        }
+
         public static void Parse(int index, string input,
             [System.Runtime.CompilerServices.InterpolatedStringHandlerArgument(nameof(index), nameof(input))]
             PieceParseInterpolatedStringHandler template)
@@ -40,6 +47,13 @@ namespace InterpolatedParser
             ParseInterpolatedStringHandler template)
         {
 
+        }
+
+        public static bool TryParse(ref int index, string input,
+            [System.Runtime.CompilerServices.InterpolatedStringHandlerArgument(nameof(index), nameof(input))]
+            RefPieceTryParseInterpolatedStringHandler template)
+        {
+            return template.OK;
         }
 
         public static bool TryParse(int index, string input,

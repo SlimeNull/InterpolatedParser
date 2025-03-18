@@ -4,6 +4,11 @@ namespace TestConsole
 {
     internal class Program
     {
+        static Program()
+        {
+            Parsing.RegisterParser(new TwoDoubleParser());
+        }
+
         static void Main(string[] args)
         {
             var someInteger = 0;
@@ -18,6 +23,11 @@ namespace TestConsole
             Console.WriteLine(someFloat1);
             Console.WriteLine(someFloat2);
             Console.WriteLine(someFloat3);
+
+            TwoDouble twoDouble = default;
+            Parsing.Parse("2323,2434", $"{twoDouble}");
+
+            Console.WriteLine(twoDouble);
         }
     }
 }
