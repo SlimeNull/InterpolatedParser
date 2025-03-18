@@ -21,6 +21,7 @@ namespace InterpolatedParser
             RegisterParser(DoubleParser.Instance);
             RegisterParser(DecimalParser.Instance);
             RegisterParser(BigIntegerParser.Instance);
+            RegisterParser(BooleanParser.Instance);
         }
 
         public static void RegisterParser<T>(IParser<T> parser)
