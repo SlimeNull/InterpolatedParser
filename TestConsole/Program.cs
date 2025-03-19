@@ -29,5 +29,10 @@ namespace TestConsole
 
             Console.WriteLine(twoDouble);
         }
+
+        static void ChangeValue(in string text)
+        {
+
+        }
     }
 }

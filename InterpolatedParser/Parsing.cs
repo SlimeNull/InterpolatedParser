@@ -1,5 +1,5 @@
-﻿using System.Runtime.CompilerServices;
-using InterpolatedParser.Parsers;
+﻿using InterpolatedParser.Parsers;
+using InterpolatedParser.Utilities;
 
 namespace InterpolatedParser
 {
@@ -85,7 +85,7 @@ namespace InterpolatedParser
             index += literal.Length;
         }
 
-        private static void AppendFormatedForParseHandler<T>(ref int index, string text, in T value)
+        private static void AppendFormattedForParseHandler<T>(ref int index, string text, in T value)
         {
             if (index >= text.Length)
             {
@@ -107,7 +107,7 @@ namespace InterpolatedParser
             var actualParser = (IParser<T>)parser;
             var parsedValue = actualParser.Parse(ref index, text);
 
-            Unsafe.AsRef<T>(in value) = parsedValue;
+            UnsafeUtils.AsRef(value) = parsedValue;
         }
 
         private static void AppendLiteralForTryParseHandler(ref int index, ref bool failed, string text, string literal)
@@ -125,7 +125,7 @@ namespace InterpolatedParser
             index += literal.Length;
         }
 
-        private static void AppendFormatedForTryParseHandler<T>(ref int index, ref bool failed, string text, in T value)
+        private static void AppendFormattedForTryParseHandler<T>(ref int index, ref bool failed, string text, in T value)
         {
             if (index >= text.Length)
             {
@@ -149,7 +149,7 @@ namespace InterpolatedParser
             var actualParser = (IParser<T>)parser;
             var parsedValue = actualParser.Parse(ref index, text);
 
-            Unsafe.AsRef<T>(in value) = parsedValue;
+            UnsafeUtils.AsRef(value) = parsedValue;
         }
     }
 }

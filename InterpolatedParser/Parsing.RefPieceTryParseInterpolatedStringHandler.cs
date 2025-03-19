@@ -43,7 +43,7 @@ namespace InterpolatedParser
                     return;
                 }
 
-                AppendFormatedForTryParseHandler(ref _currentIndex, ref _failed, _input, value);
+                AppendFormattedForTryParseHandler(ref _currentIndex, ref _failed, _input, value);
             }
         }
     }

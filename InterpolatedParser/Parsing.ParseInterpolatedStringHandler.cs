@@ -25,7 +25,7 @@ namespace InterpolatedParser
 
             public void AppendFormatted<T>(in T value)
             {
-                AppendFormatedForParseHandler(ref _currentIndex, _input, value);
+                AppendFormattedForParseHandler(ref _currentIndex, _input, value);
             }
         }
     }

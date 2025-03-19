@@ -126,7 +126,11 @@ namespace InterpolatedParser.Parsers
                     exponent = -exponent;
                 }
 
+#if NET6_0_OR_GREATER
                 value *= MathF.Pow(10, exponent);
+#else
+                value *= (float)Math.Pow(10, exponent);
+#endif
             }
 
             index = actualIndex;
