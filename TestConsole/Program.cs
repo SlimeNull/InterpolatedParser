@@ -7,6 +7,9 @@ namespace TestConsole
         static Program()
         {
             Parsing.RegisterParser(new TwoDoubleParser());
+            Parsing.RegisterParser(new LengthUnitParser());
+            Parsing.RegisterParser(new LengthParser());
+            Parsing.RegisterParser(new Length2Parser());
         }
 
         static void Main(string[] args)
@@ -28,11 +31,11 @@ namespace TestConsole
             Parsing.Parse("2323,2434", $"{twoDouble}");
 
             Console.WriteLine(twoDouble);
-        }
 
-        static void ChangeValue(in string text)
-        {
-
+            Length2 length2 = default;
+            int i = 0;
+            Parsing.Parse(ref i, "2346mm,34nm", $"{length2}");
+            Console.WriteLine(length2);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace InterpolatedParser
             [System.Runtime.CompilerServices.InterpolatedStringHandlerArgument(nameof(index), nameof(input))]
             RefPieceParseInterpolatedStringHandler template)
         {
-
+            index = template.CurrentIndex;
         }
 
         public static void Parse(int index, string input,
@@ -54,6 +54,7 @@ namespace InterpolatedParser
             [System.Runtime.CompilerServices.InterpolatedStringHandlerArgument(nameof(index), nameof(input))]
             RefPieceTryParseInterpolatedStringHandler template)
         {
+            index = template.CurrentIndex;
             return template.OK;
         }
 
